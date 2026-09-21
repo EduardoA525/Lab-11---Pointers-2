@@ -21,3 +21,44 @@ Craft your output to fully exercise your code.
 //COMSC - 210 - 5293
 //Lab 11 - Pointers 2
 
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+//Will create a dynamic array of structs which are horror movie fans.
+//Ask how many fans there are
+//Ask their name and age to grab general demographic
+//Ask how many other genres they like, then ask what those genres are
+
+//Struct creation and decreation
+struct HorrorEnjoyer {
+
+    string name;
+    int age;
+    int maxGenres;
+    string *inputGenres;
+
+    //ripped straight from example code
+    ~HorrorEnjoyer() {
+        if (inputGenres)
+            delete[] inputGenres;
+
+        inputGenres = nullptr;
+    }
+};
+
+int main() {
+
+    //For the input of horror fans
+    int maxEnjoyers;
+
+    cout << "How many movie fans love horror?" << endl;
+    cin >> maxEnjoyers;
+
+
+
+
+
+    return 0;
+}
