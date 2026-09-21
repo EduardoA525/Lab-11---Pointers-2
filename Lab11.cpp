@@ -48,6 +48,10 @@ struct HorrorEnjoyer {
     }
 };
 
+//Prototypes
+void inputEnjoyer(HorrorEnjoyer *);
+//void displayEnjoyer(HorrorEnjoyer *);
+
 int main() {
 
     //For the input of horror fans
@@ -55,10 +59,34 @@ int main() {
 
     cout << "How many movie fans love horror?" << endl;
     cin >> maxEnjoyers;
+    cin.ignore();
 
+    //Creates dynamic array with the input beforehand
+    HorrorEnjoyer *enjoyers = new HorrorEnjoyer[maxEnjoyers];
 
+    //Loop to run the function of inputting data into each fan
+    for (int i = 0; i < maxEnjoyers; i++) {
+        inputEnjoyer(&enjoyers[i]);
+    }
 
 
 
     return 0;
+}
+
+//Definitions
+
+//Function for inputting all the fan data
+void inputEnjoyer(HorrorEnjoyer *enjoyerPtr){
+
+    //Asks for name and age and stores them in the fan data
+    cout << "Name: ";
+    getline(cin, enjoyerPtr->name);
+
+    cout << "Age: ";
+    cin >> enjoyerPtr->age;
+    cin.ignore();
+
+
+
 }
