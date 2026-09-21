@@ -50,7 +50,7 @@ struct HorrorEnjoyer {
 
 //Prototypes
 void inputEnjoyer(HorrorEnjoyer *);
-//void displayEnjoyer(HorrorEnjoyer *);
+void displayEnjoyer(HorrorEnjoyer *);
 
 int main() {
 
@@ -67,6 +67,11 @@ int main() {
     //Loop to run the function of inputting data into each fan
     for (int i = 0; i < maxEnjoyers; i++) {
         inputEnjoyer(&enjoyers[i]);
+    }
+
+    //Loop to run the function of outputting data from each fan
+    for (int i = 0; i < maxEnjoyers; i++) {
+        displayEnjoyer(&enjoyers[i]);
     }
 
 
@@ -92,11 +97,31 @@ void inputEnjoyer(HorrorEnjoyer *enjoyerPtr){
     cin >> enjoyerPtr->maxGenres;
     cin.ignore();
 
+    //Creates dynamic array for each genre
     enjoyerPtr->inputGenres = new string[enjoyerPtr->maxGenres];
 
+    //Loops through each genre until it hits the max size inputted
     for (int i = 0; i < enjoyerPtr->maxGenres; i++) {
 
         cout << "Genre #" << i + 1 << ": ";
         getline(cin,enjoyerPtr->inputGenres[i]);
+    }
+}
+
+//Function to display all the horror fans
+void displayEnjoyer(HorrorEnjoyer *enjoyerPtr) {
+
+    //Displays name, age, and how many other genres they like
+    //cout << 
+    cout << "Name: " << enjoyerPtr->name << endl;
+    cout << "Age: " << enjoyerPtr->age << endl;
+    cout << enjoyerPtr->name << " also loves " 
+         << enjoyerPtr->maxGenres << " other genres." << endl;
+
+    //Loop to display each genre
+    for (int i = 0; i < enjoyerPtr->maxGenres; i++) {
+
+        cout << "Genre #" << i + 1 << ": "
+             << enjoyerPtr->inputGenres[i] << endl;
     }
 }
