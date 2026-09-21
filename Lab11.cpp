@@ -37,7 +37,7 @@ struct HorrorEnjoyer {
     string name;
     int age;
     int maxGenres;
-    string *inputGenres;
+    string *inputGenres = nullptr;
 
     //ripped straight from example code
     ~HorrorEnjoyer() {
@@ -87,6 +87,16 @@ void inputEnjoyer(HorrorEnjoyer *enjoyerPtr){
     cin >> enjoyerPtr->age;
     cin.ignore();
 
+    //Asks how many genres to create a dynamic array of that size
+    cout << "How many other genres do you like: " << endl;
+    cin >> enjoyerPtr->maxGenres;
+    cin.ignore();
 
+    enjoyerPtr->inputGenres = new string[enjoyerPtr->maxGenres];
 
+    for (int i = 0; i < enjoyerPtr->maxGenres; i++) {
+
+        cout << "Genre #" << i + 1 << ": ";
+        getline(cin,enjoyerPtr->inputGenres[i]);
+    }
 }
